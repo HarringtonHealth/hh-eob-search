@@ -1,0 +1,19 @@
+.hh-pad-right-5 {
+	padding-right: 5px;
+}
+
+/* add some padding to line icon up within header */
+i {
+	margin-top: 9px;
+}
+
+/* center button in td */
+.hh-align-center {
+	text-align: center;
+}
+
+/* remove extra bottom margin */
+.well.well-sm,
+.table.table-bordered.table-hover.table-condensed {
+	margin-bottom: 0px;
+}

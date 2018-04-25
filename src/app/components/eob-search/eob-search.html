@@ -1,0 +1,60 @@
+<div role="heading" aria-label="explanation of benefits statements" class="panel panel-info" tabindex="0">
+	<div class="panel-heading">
+		<h3 class="panel-title">
+			Explanation of Benefits Statements
+			<i class="fa fa-spinner fa-2x center-block pull-right" ng-class="{'fa-spin' : $ctrl.loading}" ng-show="$ctrl.loading"></i>
+		</h3>
+	</div>
+	<!-- Start filters -->
+	<div class="well well-sm">
+		<div class="form-inline">
+			<span class="hh-pad-right-5" ng-bind="::'Filter:'"></span>
+			<!-- Start member filter -->
+			<select role="menu" class="form-control" ng-model="$ctrl.selectedMember" ng-if="$ctrl.members.length > 1" ng-options="m as m for m in $ctrl.members"
+			 ng-change="$ctrl.getFilteredEobs()" tabindex="0">
+				<option value="" ng-bind="::'--All Family Members--'"></option>
+			</select>
+			<!-- End member filter -->
+			<!-- Start date filter -->
+			<select role="menu" class="form-control" ng-model="$ctrl.monthsBack" ng-options="m.monthsBack as m.descr for m in $ctrl.searchRanges"
+			 ng-change="$ctrl.getFilteredEobs()" tabindex="0"></select>
+			<!-- End date filter -->
+		</div>
+	</div>
+	<!-- End filters -->
+	<!-- Start no eobs -->
+	<div class="panel-body" ng-if="$ctrl.getFilteredEobs().length === 0 && !$ctrl.loading">
+		<div role="alert" aria-label="no e o b's found" class="alert alert-dismissible alert-warning" ng-bind="::'No EOBs found.'"
+		 tabindex="0"></div>
+	</div>
+	<!-- End no eobs -->
+	<div class="flip-scroll" ng-show="$ctrl.getFilteredEobs().length > 0">
+		<!-- Start eob table -->
+		<table class="table table-bordered table-hover table-condensed flip-content" tabindex="0">
+			<thead class="flip-content">
+				<tr>
+					<th scope="col" ng-bind="::'Patient Name'"></th>
+					<th scope="col" ng-bind="::'Statement Begin Date'"></th>
+					<th scope="col" ng-bind="::'Statement End Date'"></th>
+					<th scope="col" ng-bind="::'Plan Year'"></th>
+					<th scope="col" ng-bind="::'Document'"></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="e in $ctrl.getFilteredEobs()" tabindex="0">
+					<td aria-label="patient name {{ e.PatientName }}" ng-bind="e.PatientName"></td>
+					<td aria-label="statement begin date {{ e.DateRangeBegin | date: 'MM/dd/yyyy' }}" ng-bind="e.DateRangeBegin | date: 'MM/dd/yyyy'"></td>
+					<td aria-label="statement end date {{ e.DateReangeEnd | date: 'MM/dd/yyyy' }}" ng-bind="e.DateReangeEnd | date: 'MM/dd/yyyy'"></td>
+					<td aria-label="plan year {{ e.PlanYear }}" ng-bind="e.PlanYear"></td>
+					<td aria-label="select to view / print document" class="hh-align-center">
+						<span class="btn btn-primary" ng-click="$ctrl.getDocument(e.EOBDocumentUID);" ng-keydown="$event.keyCode === 13 && $ctrl.getDocument(e.EOBDocumentUID);"
+						 tabindex="0">
+							<i class="fa fa-print"></i>
+						</span>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<!-- End eob table -->
+	</div>
+</div>

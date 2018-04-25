@@ -1,0 +1,56 @@
+﻿<dotnetnuke type="ResourceFile" version="5.0">
+  <files>
+    <file>
+      <path />
+      <name>.babelrc</name>
+    </file>
+    <file>
+      <path>dist/</path>
+      <name>app.build.js</name>
+    </file>
+    <file>
+      <path>dist/</path>
+      <name>index.html</name>
+    </file>
+    <file>
+      <path />
+      <name>package.json</name>
+    </file>
+    <file>
+      <path>src/app/</path>
+      <name>app.module.js</name>
+    </file>
+    <file>
+      <path>src/app/</path>
+      <name>app.run.js</name>
+    </file>
+    <file>
+      <path>src/app/components/</path>
+      <name>components.module.js</name>
+    </file>
+    <file>
+      <path>src/app/components/eob-search/</path>
+      <name>eob-search.component.js</name>
+    </file>
+    <file>
+      <path>src/app/components/eob-search/</path>
+      <name>eob-search.css</name>
+    </file>
+    <file>
+      <path>src/app/components/eob-search/</path>
+      <name>eob-search.html</name>
+    </file>
+    <file>
+      <path>src/app/components/eob-search/</path>
+      <name>eob-search.module.js</name>
+    </file>
+    <file>
+      <path>src/app/components/eob-search/</path>
+      <name>eob-search.service.js</name>
+    </file>
+    <file>
+      <path />
+      <name>webpack.config.js</name>
+    </file>
+  </files>
+</dotnetnuke>

@@ -1,0 +1,28 @@
+[JavaScript:{ jsname: "AngularJs" }] 
+[JavaScript:{ path: "~/DesktopModules/hh-eob-search/dist/app.build.js"}]
+
+<div id="hh-eob-search-root" 
+	data-module-id="[ModuleContext:ModuleId]" 
+	data-is-superuser="[ModuleContext:IsSuperUser]" 
+	data-anti-forgery-token="[AntiForgeryToken:true]" 
+	ng-cloak="true" 
+	ng-switch="{{'[ModuleContext:IsSuperUser]'.toLowerCase()}}">
+	<!-- non-admins -->
+	<div ng-switch-when="false">
+		<eob-search></eob-search>
+	</div>
+	<!-- admins -->
+	<div ng-switch-when="true">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title" ng-bind="::'Eob Search'"></h3>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	angular.element(function () {
+		angular.bootstrap(document.getElementById('hh-eob-search-root'), ['HhEobSearch']);
+	});
+</script>
